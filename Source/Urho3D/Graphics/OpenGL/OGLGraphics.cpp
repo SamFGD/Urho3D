@@ -3252,21 +3252,22 @@ void Graphics::ResetCachedState()
 
 void Graphics::SetTextureUnitMappings()
 {
-    textureUnits_["DiffMap"] = TU_DIFFUSE;
-    textureUnits_["DiffCubeMap"] = TU_DIFFUSE;
-    textureUnits_["AlbedoBuffer"] = TU_ALBEDOBUFFER;
-    textureUnits_["NormalMap"] = TU_NORMAL;
-    textureUnits_["NormalBuffer"] = TU_NORMALBUFFER;
-    textureUnits_["SpecMap"] = TU_SPECULAR;
-    textureUnits_["EmissiveMap"] = TU_EMISSIVE;
-    textureUnits_["EnvMap"] = TU_ENVIRONMENT;
-    textureUnits_["EnvCubeMap"] = TU_ENVIRONMENT;
+    textureUnits_["01"] = TU_01;
+    textureUnits_["GBuffer01"] = TU_GBUFFER01;
+    textureUnits_["02"] = TU_2;
+    textureUnits_["GBuffer02"] = TU_GBUFFER02;
+    textureUnits_["03"] = TU_03;
+	textureUnits_["GBuffer02"] = TU_GBUFFER03;
+    textureUnits_["04"] = TU_04;
+    textureUnits_["05"] = TU_05;
     textureUnits_["LightRampMap"] = TU_LIGHTRAMP;
     textureUnits_["LightSpotMap"] = TU_LIGHTSHAPE;
     textureUnits_["LightCubeMap"] = TU_LIGHTSHAPE;
     textureUnits_["ShadowMap"] = TU_SHADOWMAP;
 #ifndef GL_ES_VERSION_2_0
-    textureUnits_["VolumeMap"] = TU_VOLUMEMAP;
+    textureUnits_["06"] = TU_06;
+	textureUnits_["07"] = TU_07;
+	textureUnits_["08"] = TU_08;
     textureUnits_["FaceSelectCubeMap"] = TU_FACESELECT;
     textureUnits_["IndirectionCubeMap"] = TU_INDIRECTION;
     textureUnits_["DepthBuffer"] = TU_DEPTHBUFFER;

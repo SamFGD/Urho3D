@@ -49,25 +49,25 @@ namespace Urho3D
 {
 
 extern const char* wrapModeNames[];
-
+//Can only contain 16 values because they are printed in the editor etc SFGD 200221
 static const char* textureUnitNames[] =
 {
-    "diffuse",
-    "normal",
-    "specular",
-    "emissive",
-    "environment",
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
 #ifdef DESKTOP_GRAPHICS
-    "volume",
-    "custom1",
-    "custom2",
+    "06",
+    "07",
+    "08",
     "lightramp",
     "lightshape",
     "shadowmap",
     "faceselect",
     "indirection",
-    "depth",
-    "light",
+    "depthbuffer",
+    "lightbuffer",
     "zone",
     nullptr
 #else
@@ -103,17 +103,17 @@ TextureUnit ParseTextureUnitName(String name)
     {
         // Check also for shorthand names
         if (name == "diff")
-            unit = TU_DIFFUSE;
+            unit = TU_01;
         else if (name == "albedo")
-            unit = TU_DIFFUSE;
+            unit = TU_01;
         else if (name == "norm")
-            unit = TU_NORMAL;
+            unit = TU_02;
         else if (name == "spec")
-            unit = TU_SPECULAR;
+            unit = TU_03;
         else if (name == "env")
-            unit = TU_ENVIRONMENT;
+            unit = TU_05;
         // Finally check for specifying the texture unit directly as a number
-        else if (name.Length() < 3)
+        else if (name.Length() < 3) //Keep this remove the other if statements and only allow textureUnitNames //SFGD 200221 //Not a problem because I don't need to use GBUFFER01 because a material should not use GBUFFER01 only renderpath do
             unit = (TextureUnit)Clamp(ToInt(name), 0, MAX_TEXTURE_UNITS - 1);
     }
 
@@ -300,7 +300,7 @@ bool Material::BeginLoadXML(Deserializer& source)
                     if (!type && textureElem.HasAttribute("unit"))
                     {
                         TextureUnit unit = ParseTextureUnitName(textureElem.GetAttribute("unit"));
-                        if (unit == TU_VOLUMEMAP)
+                        if (unit == TU_06)
                             type = Texture3D::GetTypeStatic();
                     }
 
@@ -361,7 +361,7 @@ bool Material::BeginLoadJSON(Deserializer& source)
                     if (!type && !unitString.Empty())
                     {
                         TextureUnit unit = ParseTextureUnitName(unitString);
-                        if (unit == TU_VOLUMEMAP)
+                        if (unit == TU_06)
                             type = Texture3D::GetTypeStatic();
                     }
 
@@ -439,7 +439,7 @@ bool Material::Load(const XMLElement& source)
     XMLElement textureElem = source.GetChild("texture");
     while (textureElem)
     {
-        TextureUnit unit = TU_DIFFUSE;
+        TextureUnit unit = TU_01;
         if (textureElem.HasAttribute("unit"))
             unit = ParseTextureUnitName(textureElem.GetAttribute("unit"));
         if (unit < MAX_TEXTURE_UNITS)
@@ -450,7 +450,7 @@ bool Material::Load(const XMLElement& source)
             {
 #ifdef DESKTOP_GRAPHICS
                 StringHash type = ParseTextureTypeXml(cache, name);
-                if (!type && unit == TU_VOLUMEMAP)
+                if (!type && unit == TU_06)
                     type = Texture3D::GetTypeStatic();
 
                 if (type == Texture3D::GetTypeStatic())
@@ -597,7 +597,7 @@ bool Material::Load(const JSONValue& source)
         String textureUnit = it->first_;
         String textureName = it->second_.GetString();
 
-        TextureUnit unit = TU_DIFFUSE;
+        TextureUnit unit = TU_01;
         unit = ParseTextureUnitName(textureUnit);
 
         if (unit < MAX_TEXTURE_UNITS)
@@ -607,7 +607,7 @@ bool Material::Load(const JSONValue& source)
             {
 #ifdef DESKTOP_GRAPHICS
                 StringHash type = ParseTextureTypeXml(cache, textureName);
-                if (!type && unit == TU_VOLUMEMAP)
+                if (!type && unit == TU_06)
                     type = Texture3D::GetTypeStatic();
 
                 if (type == Texture3D::GetTypeStatic())

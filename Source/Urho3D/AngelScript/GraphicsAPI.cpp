@@ -304,20 +304,21 @@ static void RegisterRenderPath(asIScriptEngine* engine)
     engine->RegisterEnumValue("RenderTargetSizeMode", "SIZE_VIEWPORTMULTIPLIER", SIZE_VIEWPORTMULTIPLIER);
 
     engine->RegisterEnum("TextureUnit");
-    engine->RegisterEnumValue("TextureUnit", "TU_DIFFUSE", TU_DIFFUSE);
-    engine->RegisterEnumValue("TextureUnit", "TU_ALBEDOBUFFER", TU_ALBEDOBUFFER);
-    engine->RegisterEnumValue("TextureUnit", "TU_NORMAL", TU_NORMAL);
-    engine->RegisterEnumValue("TextureUnit", "TU_NORMALBUFFER", TU_NORMALBUFFER);
-    engine->RegisterEnumValue("TextureUnit", "TU_SPECULAR", TU_SPECULAR);
-    engine->RegisterEnumValue("TextureUnit", "TU_EMISSIVE", TU_EMISSIVE);
-    engine->RegisterEnumValue("TextureUnit", "TU_ENVIRONMENT", TU_ENVIRONMENT);
+    engine->RegisterEnumValue("TextureUnit", "TU_01", TU_01);
+    engine->RegisterEnumValue("TextureUnit", "TU_GBUFFER01", TU_GBUFFER01);
+    engine->RegisterEnumValue("TextureUnit", "TU_02", TU_02);
+    engine->RegisterEnumValue("TextureUnit", "TU_GBUFFER02", TU_GBUFFER02);
+    engine->RegisterEnumValue("TextureUnit", "TU_03", TU_03);
+	engine->RegisterEnumValue("TextureUnit", "TU_GBUFFER03", TU_GBUFFER03);
+    engine->RegisterEnumValue("TextureUnit", "TU_04", TU_04);
+    engine->RegisterEnumValue("TextureUnit", "TU_05", TU_05);
     engine->RegisterEnumValue("TextureUnit", "TU_LIGHTRAMP", TU_LIGHTRAMP);
     engine->RegisterEnumValue("TextureUnit", "TU_LIGHTSHAPE", TU_LIGHTSHAPE);
     engine->RegisterEnumValue("TextureUnit", "TU_SHADOWMAP", TU_SHADOWMAP);
 #ifdef DESKTOP_GRAPHICS
-    engine->RegisterEnumValue("TextureUnit", "TU_CUSTOM1", TU_CUSTOM1);
-    engine->RegisterEnumValue("TextureUnit", "TU_CUSTOM2", TU_CUSTOM2);
-    engine->RegisterEnumValue("TextureUnit", "TU_VOLUMEMAP", TU_VOLUMEMAP);
+	engine->RegisterEnumValue("TextureUnit", "TU_06", TU_06);
+    engine->RegisterEnumValue("TextureUnit", "TU_07", TU_07);
+    engine->RegisterEnumValue("TextureUnit", "TU_08", TU_08);  
     engine->RegisterEnumValue("TextureUnit", "TU_FACESELECT", TU_FACESELECT);
     engine->RegisterEnumValue("TextureUnit", "TU_INDIRECTION", TU_INDIRECTION);
     engine->RegisterEnumValue("TextureUnit", "TU_DEPTHBUFFER", TU_DEPTHBUFFER);

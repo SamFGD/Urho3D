@@ -220,7 +220,7 @@ void RenderPathCommand::Load(const XMLElement& element)
     XMLElement textureElem = element.GetChild("texture");
     while (textureElem)
     {
-        TextureUnit unit = TU_DIFFUSE;
+        TextureUnit unit = TU_01;
         if (textureElem.HasAttribute("unit"))
             unit = ParseTextureUnitName(textureElem.GetAttribute("unit"));
         if (unit < MAX_TEXTURE_UNITS)

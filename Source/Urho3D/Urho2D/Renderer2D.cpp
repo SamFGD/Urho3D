@@ -298,7 +298,7 @@ SharedPtr<Material> Renderer2D::CreateMaterial(Texture2D* texture, BlendMode ble
 
     newMaterial->SetTechnique(0, techIt->second_.Get());
     newMaterial->SetName(texture->GetName() + "_" + blendModeNames[blendMode]);
-    newMaterial->SetTexture(TU_DIFFUSE, texture);
+    newMaterial->SetTexture(TU_01, texture);
 
     return newMaterial;
 }

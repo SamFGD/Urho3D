@@ -666,7 +666,7 @@ void Text3D::UpdateTextMaterials(bool forceUpdate)
 
         Material* material = batches_[i].material_;
         Texture* texture = uiBatches_[i].texture_;
-        material->SetTexture(TU_DIFFUSE, texture);
+        material->SetTexture(TU_01, texture);
 
         if (isSDFFont)
         {

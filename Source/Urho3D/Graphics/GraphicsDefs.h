@@ -319,17 +319,18 @@ enum ShaderParameterGroup
 /// Texture units.
 enum TextureUnit
 {
-    TU_DIFFUSE = 0,
-    TU_ALBEDOBUFFER = 0,
-    TU_NORMAL = 1,
-    TU_NORMALBUFFER = 1,
-    TU_SPECULAR = 2,
-    TU_EMISSIVE = 3,
-    TU_ENVIRONMENT = 4,
+    TU_01 = 0,
+    TU_GBUFFER01 = 0,
+    TU_02 = 1,
+    TU_GBUFFER02 = 1,
+    TU_03 = 2,
+	TU_GBUFFER03 = 2,
+    TU_04 = 3,
+    TU_05 = 4,
 #ifdef DESKTOP_GRAPHICS
-    TU_VOLUMEMAP = 5,
-    TU_CUSTOM1 = 6,
-    TU_CUSTOM2 = 7,
+    TU_06 = 5,
+    TU_07 = 6,
+    TU_08 = 7,
     TU_LIGHTRAMP = 8,
     TU_LIGHTSHAPE = 9,
     TU_SHADOWMAP = 10,

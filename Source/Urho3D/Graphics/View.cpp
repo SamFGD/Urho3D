@@ -1806,7 +1806,7 @@ bool View::SetTextures(RenderPathCommand& command)
         }
 
 #ifdef DESKTOP_GRAPHICS
-        Texture* texture = FindNamedTexture(command.textureNames_[i], false, i == TU_VOLUMEMAP);
+        Texture* texture = FindNamedTexture(command.textureNames_[i], false, i == TU_06);
 #else
         Texture* texture = FindNamedTexture(command.textureNames_[i], false, false);
 #endif
@@ -2124,7 +2124,7 @@ void View::BlitFramebuffer(Texture* source, RenderSurface* destination, bool dep
 
     SetGBufferShaderParameters(srcSize, srcRect);
 
-    graphics_->SetTexture(TU_DIFFUSE, source);
+    graphics_->SetTexture(TU_01, source);
     DrawFullscreenQuad(true);
 }
 

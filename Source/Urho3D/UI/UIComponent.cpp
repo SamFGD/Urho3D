@@ -163,7 +163,7 @@ UIComponent::UIComponent(Context* context)
 
     material_ = context_->CreateObject<Material>();
     material_->SetTechnique(0, GetSubsystem<ResourceCache>()->GetResource<Technique>("Techniques/Diff.xml"));
-    material_->SetTexture(TU_DIFFUSE, texture_);
+    material_->SetTexture(TU_01, texture_);
 
     SubscribeToEvent(rootElement_, E_RESIZED, URHO3D_HANDLER(UIComponent, OnElementResized));
 

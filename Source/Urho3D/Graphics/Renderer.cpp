@@ -1986,7 +1986,7 @@ void Renderer::BlurShadowMap(View* view, Texture2D* shadowMap, float blurScale)
     static const StringHash blurOffsetParam("BlurOffsets");
 
     graphics_->SetShaderParameter(blurOffsetParam, Vector2(shadowSoftness_ * blurScale / shadowMap->GetWidth(), 0.0f));
-    graphics_->SetTexture(TU_DIFFUSE, shadowMap);
+    graphics_->SetTexture(TU_01, shadowMap);
     view->DrawFullscreenQuad(true);
 
     // Vertical blur

@@ -186,13 +186,11 @@ enum ShaderType
 // Texture unit numbering depends on graphics capability (mobile or desktop). Expose only the units we are sure of
 enum TextureUnit
 {
-    TU_DIFFUSE = 0,
-    TU_ALBEDOBUFFER = 0,
-    TU_NORMAL = 1,
-    TU_NORMALBUFFER = 1,
-    TU_SPECULAR = 2,
-    TU_EMISSIVE = 3,
-    TU_ENVIRONMENT = 4,
+    TU_01 = 0,
+    TU_02 = 1,
+    TU_03 = 2,
+    TU_04 = 3,
+    TU_05 = 4,
 };
 
 enum FaceCameraMode
