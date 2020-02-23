@@ -112,7 +112,7 @@ void PS()
 {
     // Get material diffuse albedo
     #ifdef DIFFMAP
-        vec4 diffInput = texture2D(s01, vTexCoord.xy);
+        vec4 diffInput = texture2D(sTex2d01, vTexCoord.xy);
         #ifdef ALPHAMASK
             if (diffInput.a < 0.5)
                 discard;
@@ -127,7 +127,7 @@ void PS()
     #endif
 
     #ifdef METALLIC
-        vec4 roughMetalSrc = texture2D(s03, vTexCoord.xy);
+        vec4 roughMetalSrc = texture2D(sTex2d03, vTexCoord.xy);
 
         float roughness = roughMetalSrc.r + cRoughness;
         float metalness = roughMetalSrc.g + cMetallic;
@@ -152,7 +152,7 @@ void PS()
     #endif
 
     #ifdef NORMALMAP
-        vec3 nn = DecodeNormal(texture2D(s02, vTexCoord.xy));
+        vec3 nn = DecodeNormal(texture2D(sTex2d02, vTexCoord.xy));
         //nn.rg *= 2.0;
         vec3 normal = normalize(tbn * nn);
     #else
@@ -221,7 +221,7 @@ void PS()
         vec3 finalColor = vVertexLight * diffColor.rgb;
         #ifdef AO
             // If using AO, the vertex light ambient is black, calculate occluded ambient here
-            finalColor += texture2D(s04, vTexCoord2).rgb * cAmbientColor.rgb * diffColor.rgb;
+            finalColor += texture2D(sTex2d04, vTexCoord2).rgb * cAmbientColor.rgb * diffColor.rgb;
         #endif
 
         #ifdef MATERIAL
@@ -248,10 +248,10 @@ void PS()
             finalColor += cMatEnvMapColor * textureCube(s05Cube, reflect(vReflectionVec, normal)).rgb;
         #endif
         #ifdef LIGHTMAP
-            finalColor += texture2D(s04, vTexCoord2).rgb * diffColor.rgb;
+            finalColor += texture2D(sTex2d04, vTexCoord2).rgb * diffColor.rgb;
         #endif
         #ifdef EMISSIVEMAP
-            finalColor += cMatEmissiveColor * texture2D(s04, vTexCoord.xy).rgb;
+            finalColor += cMatEmissiveColor * texture2D(sTex2d04, vTexCoord.xy).rgb;
         #else
             finalColor += cMatEmissiveColor;
         #endif

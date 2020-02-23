@@ -1,11 +1,11 @@
 #ifdef COMPILEPS
-uniform sampler2D s01;
+uniform sampler2D sTex2d01;
 uniform samplerCube s01Cube;
-uniform sampler2D s02;
-uniform sampler2D s03;
-uniform sampler2D s04;
-uniform sampler3D s05;
-uniform sampler3D s05Cube;
+uniform sampler2D sTex2d02;
+uniform sampler2D sTex2d03;
+uniform sampler2D sTex2d04;
+uniform sampler2D sTex2d05;
+uniform samplerCube s05Cube;
 uniform sampler2D sLightRampMap;
 uniform sampler2D sLightSpotMap;
 uniform samplerCube sLightCubeMap;
@@ -13,9 +13,9 @@ uniform samplerCube sLightCubeMap;
     uniform sampler2D sGBuffer01;
     uniform sampler2D sGBuffer02;
     uniform sampler2D sGBuffer03;
-	uniform sampler3D s06;
-	uniform sampler3D s07;
-	uniform sampler3D s08;
+	uniform sampler3D sTex3d06;
+	uniform sampler3D sTex3d07;
+	uniform sampler3D sTex3d08;
     uniform sampler2D sDepthBuffer;
     uniform sampler2D sLightBuffer;
     #ifdef VSM_SHADOW

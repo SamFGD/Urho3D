@@ -80,7 +80,7 @@ void PS(
     float2 refractUV = iScreenPos.xy / iScreenPos.w;
     float2 reflectUV = iReflectUV.xy / iScreenPos.w;
 
-    float2 noise = (Sample2D(02, iWaterUV).rg - 0.5) * cNoiseStrength;
+    float2 noise = (Sample2D(Tex2d02, iWaterUV).rg - 0.5) * cNoiseStrength;
     refractUV += noise;
     // Do not shift reflect UV coordinate upward, because it will reveal the clipping of geometry below water
     if (noise.y < 0.0)
@@ -88,8 +88,8 @@ void PS(
     reflectUV += noise;
 
     float fresnel = pow(1.0 - saturate(dot(normalize(iEyeVec.xyz), iNormal)), cFresnelPower);
-    float3 refractColor = Sample2D(05, refractUV).rgb * cWaterTint;
-    float3 reflectColor = Sample2D(01, reflectUV).rgb;
+    float3 refractColor = Sample2D(Tex2d05, refractUV).rgb * cWaterTint;
+    float3 reflectColor = Sample2D(Tex2d01, reflectUV).rgb;
     float3 finalColor = lerp(refractColor, reflectColor, fresnel);
 
     oColor = float4(GetFog(finalColor, GetFogFactor(iEyeVec.w)), 1.0);

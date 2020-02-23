@@ -183,7 +183,7 @@ void PS(
 {
     // Get material diffuse albedo
     #ifdef DIFFMAP
-        float4 diffInput = Sample2D(01, iTexCoord.xy);
+        float4 diffInput = Sample2D(Tex2d01, iTexCoord.xy);
         #ifdef ALPHAMASK
             if (diffInput.a < 0.5)
                 discard;
@@ -199,7 +199,7 @@ void PS(
 
     // Get material specular albedo
     #ifdef SPECMAP
-        float3 specColor = cMatSpecColor.rgb * Sample2D(03, iTexCoord.xy).rgb;
+        float3 specColor = cMatSpecColor.rgb * Sample2D(Tex2d03, iTexCoord.xy).rgb;
     #else
         float3 specColor = cMatSpecColor.rgb;
     #endif
@@ -207,7 +207,7 @@ void PS(
     // Get normal
     #ifdef NORMALMAP
         float3x3 tbn = float3x3(iTangent.xyz, float3(iTexCoord.zw, iTangent.w), iNormal);
-        float3 normal = normalize(mul(DecodeNormal(Sample2D(02, iTexCoord.xy)), tbn));
+        float3 normal = normalize(mul(DecodeNormal(Sample2D(Tex2d02, iTexCoord.xy)), tbn));
     #else
         float3 normal = normalize(iNormal);
     #endif
@@ -267,16 +267,16 @@ void PS(
         float3 finalColor = iVertexLight * diffColor.rgb;
         #ifdef AO
             // If using AO, the vertex light ambient is black, calculate occluded ambient here
-            finalColor += Sample2D(04, iTexCoord2).rgb * cAmbientColor.rgb * diffColor.rgb;
+            finalColor += Sample2D(Tex2d04, iTexCoord2).rgb * cAmbientColor.rgb * diffColor.rgb;
         #endif
         #ifdef ENVCUBEMAP
-            finalColor += cMatEnvMapColor * SampleCube(05Cube, reflect(iReflectionVec, normal)).rgb;
+            finalColor += cMatEnvMapColor * SampleCube(Cube05, reflect(iReflectionVec, normal)).rgb;
         #endif
         #ifdef LIGHTMAP
-            finalColor += Sample2D(04, iTexCoord2).rgb * diffColor.rgb;
+            finalColor += Sample2D(Tex2d04, iTexCoord2).rgb * diffColor.rgb;
         #endif
         #ifdef EMISSIVEMAP
-            finalColor += cMatEmissiveColor * Sample2D(04, iTexCoord.xy).rgb;
+            finalColor += cMatEmissiveColor * Sample2D(Tex2d04, iTexCoord.xy).rgb;
         #else
             finalColor += cMatEmissiveColor;
         #endif
@@ -290,7 +290,7 @@ void PS(
         float3 finalColor = iVertexLight * diffColor.rgb;
         #ifdef AO
             // If using AO, the vertex light ambient is black, calculate occluded ambient here
-            finalColor += Sample2D(04, iTexCoord2).rgb * cAmbientColor.rgb * diffColor.rgb;
+            finalColor += Sample2D(Tex2d04, iTexCoord2).rgb * cAmbientColor.rgb * diffColor.rgb;
         #endif
 
         #ifdef MATERIAL
@@ -303,13 +303,13 @@ void PS(
         #endif
 
         #ifdef ENVCUBEMAP
-            finalColor += cMatEnvMapColor * SampleCube(05Cube, reflect(iReflectionVec, normal)).rgb;
+            finalColor += cMatEnvMapColor * SampleCube(Cube05, reflect(iReflectionVec, normal)).rgb;
         #endif
         #ifdef LIGHTMAP
-            finalColor += Sample2D(04, iTexCoord2).rgb * diffColor.rgb;
+            finalColor += Sample2D(Tex2d04, iTexCoord2).rgb * diffColor.rgb;
         #endif
         #ifdef EMISSIVEMAP
-            finalColor += cMatEmissiveColor * Sample2D(04, iTexCoord.xy).rgb;
+            finalColor += cMatEmissiveColor * Sample2D(Tex2d04, iTexCoord.xy).rgb;
         #else
             finalColor += cMatEmissiveColor;
         #endif

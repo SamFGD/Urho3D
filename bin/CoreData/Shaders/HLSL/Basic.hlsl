@@ -74,7 +74,7 @@ void PS(
         oColor = diffColor;
     #endif
     #ifdef DIFFMAP
-        float4 diffInput = Sample2D(01, iTexCoord);
+        float4 diffInput = Sample2D(Tex2d01, iTexCoord);
         #ifdef ALPHAMASK
             if (diffInput.a < 0.5)
                 discard;
@@ -82,7 +82,7 @@ void PS(
         oColor = diffColor * diffInput;
     #endif
     #ifdef ALPHAMAP
-        float alphaInput = Sample2D(01, iTexCoord).a;
+        float alphaInput = Sample2D(Tex2d01, iTexCoord).a;
         oColor = float4(diffColor.rgb, diffColor.a * alphaInput);
     #endif
 }

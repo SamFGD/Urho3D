@@ -16,5 +16,5 @@ void VS(float4 iPos : POSITION,
 void PS(float2 iScreenPos : TEXCOORD0,
     out float4 oColor : OUTCOLOR0)
 {
-    oColor = Sample2D(01, iScreenPos);
+    oColor = Sample2D(Tex2d01, iScreenPos);
 }

@@ -92,7 +92,7 @@ void PS(float2 iTexCoord : TEXCOORD0,
 {
     // Get material diffuse albedo
     #ifdef DIFFMAP
-        float4 diffColor = cMatDiffColor * Sample2D(01, iTexCoord);
+        float4 diffColor = cMatDiffColor * Sample2D(Tex2d01, iTexCoord);
         #ifdef ALPHAMASK
             if (diffColor.a < 0.5)
                 discard;

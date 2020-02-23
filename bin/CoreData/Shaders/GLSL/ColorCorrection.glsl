@@ -16,6 +16,6 @@ void VS()
 
 void PS()
 {
-    vec3 color = texture2D(s01, vScreenPos).rgb;
-    gl_FragColor = vec4(ColorCorrection(color, s06), 1.0);
+    vec3 color = texture2D(sTex2d01, vScreenPos).rgb;
+    gl_FragColor = vec4(ColorCorrection(color, sTex3d06), 1.0);
 }

@@ -2686,23 +2686,23 @@ void Graphics::CreateResolveTexture()
 
 void Graphics::SetTextureUnitMappings()
 {
-    textureUnits_["01"] = TU_01;
-	textureUnits_["01Cube"] = TU_01;
+    textureUnits_["Tex2d01"] = TU_01;
+	textureUnits_["Cube01"] = TU_01;
     textureUnits_["GBuffer01"] = TU_01;
-    textureUnits_["02"] = TU_02;
+    textureUnits_["Tex2d02"] = TU_02;
     textureUnits_["GBuffer02"] = TU_02;
-    textureUnits_["03"] = TU_03;
+    textureUnits_["Tex2d03"] = TU_03;
 	textureUnits_["GBuffer03"] = TU_03;
-    textureUnits_["04"] = TU_04;
-    textureUnits_["05"] = TU_05;
-	textureUnits_["05Cube"] = TU_05;
+    textureUnits_["Tex2d04"] = TU_04;
+    textureUnits_["Tex2d05"] = TU_05;
+	textureUnits_["Cube05"] = TU_05;
     textureUnits_["LightRampMap"] = TU_LIGHTRAMP;
     textureUnits_["LightSpotMap"] = TU_LIGHTSHAPE;
     textureUnits_["LightCubeMap"] = TU_LIGHTSHAPE;
     textureUnits_["ShadowMap"] = TU_SHADOWMAP;
-    textureUnits_["06"] = TU_06;
-	textureUnits_["07"] = TU_07;
-	textureUnits_["08"] = TU_08;
+    textureUnits_["Tex3d06"] = TU_06;
+	textureUnits_["Tex3d07"] = TU_07;
+	textureUnits_["Tex3d08"] = TU_08;
     textureUnits_["FaceSelectCubeMap"] = TU_FACESELECT;
     textureUnits_["IndirectionCubeMap"] = TU_INDIRECTION;
     textureUnits_["DepthBuffer"] = TU_DEPTHBUFFER;

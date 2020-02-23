@@ -55,7 +55,7 @@ void PS(float2 iTexCoord : TEXCOORD0,
 {
 #ifdef SIGNED_DISTANCE_FIELD
     oColor.rgb = iColor.rgb;
-    float distance = Sample2D(01, iTexCoord).a;
+    float distance = Sample2D(Tex2d01, iTexCoord).a;
 
     #ifdef TEXT_EFFECT_STROKE
         #ifdef SUPERSAMPLING
@@ -68,7 +68,7 @@ void PS(float2 iTexCoord : TEXCOORD0,
     #endif
 
     #ifdef TEXT_EFFECT_SHADOW
-        if (Sample2D(01, iTexCoord - cShadowOffset).a > 0.5 && distance <= 0.5)
+        if (Sample2D(Tex2d01, iTexCoord - cShadowOffset).a > 0.5 && distance <= 0.5)
             oColor = cShadowColor;
         #ifndef SUPERSAMPLING
         else if (distance <= 0.5)
@@ -84,10 +84,10 @@ void PS(float2 iTexCoord : TEXCOORD0,
                 float2 deltaUV = 0.354 * fwidth(iTexCoord); // (1.0 / sqrt(2.0)) / 2.0 = 0.354
                 float4 square = float4(iTexCoord - deltaUV, iTexCoord + deltaUV);
 
-                float distance2 = Sample2D(01, square.xy).a;
-                float distance3 = Sample2D(01, square.zw).a;
-                float distance4 = Sample2D(01, square.xw).a;
-                float distance5 = Sample2D(01, square.zy).a;
+                float distance2 = Sample2D(Tex2d01, square.xy).a;
+                float distance3 = Sample2D(Tex2d01, square.zw).a;
+                float distance4 = Sample2D(Tex2d01, square.xw).a;
+                float distance5 = Sample2D(Tex2d01, square.zy).a;
 
                 alpha += GetAlpha(distance2, width)
                        + GetAlpha(distance3, width)
@@ -104,9 +104,9 @@ void PS(float2 iTexCoord : TEXCOORD0,
 #else
     #ifdef ALPHAMAP
         oColor.rgb = iColor.rgb;
-        oColor.a = iColor.a * Sample2D(01, iTexCoord).a;
+        oColor.a = iColor.a * Sample2D(Tex2d01, iTexCoord).a;
     #else
-        oColor = iColor* Sample2D(01, iTexCoord);
+        oColor = iColor* Sample2D(Tex2d01, iTexCoord);
     #endif
 #endif
 }

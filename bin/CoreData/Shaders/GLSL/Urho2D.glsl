@@ -18,6 +18,6 @@ void VS()
 void PS()
 {
     vec4 diffColor = cMatDiffColor * vColor;
-    vec4 diffInput = texture2D(s01, vTexCoord);
+    vec4 diffInput = texture2D(sTex2d01, vTexCoord);
     gl_FragColor = diffColor * diffInput;
 }

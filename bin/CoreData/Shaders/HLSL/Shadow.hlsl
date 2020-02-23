@@ -47,7 +47,7 @@ void PS(
     out float4 oColor : OUTCOLOR0)
 {
     #ifdef ALPHAMASK
-        float alpha = Sample2D(01, iTexCoord.xy).a;
+        float alpha = Sample2D(Tex2d01, iTexCoord.xy).a;
         if (alpha < 0.5)
             discard;
     #endif
