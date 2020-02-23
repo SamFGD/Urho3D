@@ -57,8 +57,8 @@ void PS(
         #else
             float3 worldPos = iFarRay * depth;
         #endif
-        float4 albedoInput = Sample2DLod0(AlbedoBuffer, iScreenPos);
-        float4 normalInput = Sample2DLod0(NormalBuffer, iScreenPos);
+        float4 albedoInput = Sample2DLod0(GBuffer01, iScreenPos);
+        float4 normalInput = Sample2DLod0(GBuffer02, iScreenPos);
     #else
         float depth = Sample2DProj(DepthBuffer, iScreenPos).r;
         #ifdef HWDEPTH
@@ -69,8 +69,8 @@ void PS(
         #else
             float3 worldPos = iFarRay * depth / iScreenPos.w;
         #endif
-        float4 albedoInput = Sample2DProj(AlbedoBuffer, iScreenPos);
-        float4 normalInput = Sample2DProj(NormalBuffer, iScreenPos);
+        float4 albedoInput = Sample2DProj(GBuffer01, iScreenPos);
+        float4 normalInput = Sample2DProj(GBuffer02, iScreenPos);
     #endif
 
     // Position acquired via near/far ray is relative to camera. Bring position to world space

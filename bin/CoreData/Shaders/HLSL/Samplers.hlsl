@@ -13,17 +13,20 @@
 #ifndef D3D11
 
 // D3D9 samplers
-sampler2D sDiffMap : register(s0);
-samplerCUBE sDiffCubeMap : register(s0);
-sampler2D sAlbedoBuffer : register(s0);
-sampler2D sNormalMap : register(s1);
-sampler2D sNormalBuffer : register(s1);
-sampler2D sSpecMap : register(s2);
-sampler2D sRoughMetalFresnel : register(s2); //R: Roughness, G: Metal
-sampler2D sEmissiveMap : register(s3);
-sampler2D sEnvMap : register(s4);
-sampler3D sVolumeMap : register(s5);
-samplerCUBE sEnvCubeMap : register(s4);
+sampler2D s01 : register(s0);
+samplerCUBE s01Cube : register(s0);
+sampler2D sGBuffer01 : register(s0);
+sampler2D s02 : register(s1);
+sampler2D sGBuffer02 : register(s1);
+sampler2D s03 : register(s2);
+sampler2D sGBuffer03 : register(s2);
+//sampler2D sRoughMetalFresnel : register(s2); //R: Roughness, G: Metal
+sampler2D s04 : register(s3);
+sampler2D s05 : register(s4);
+samplerCUBE s05Cube : register(s4);
+sampler3D s06 : register(s5);
+sampler3D s07 : register(s6);
+sampler3D s08 : register(s7);
 sampler2D sLightRampMap : register(s8);
 sampler2D sLightSpotMap : register(s9);
 samplerCUBE sLightCubeMap : register(s9);
@@ -46,17 +49,20 @@ sampler3D sZoneVolumeMap : register(s15);
 
 // D3D11 textures and samplers
 
-Texture2D tDiffMap : register(t0);
-TextureCube tDiffCubeMap : register(t0);
-Texture2D tAlbedoBuffer : register(t0);
-Texture2D tNormalMap : register(t1);
-Texture2D tNormalBuffer : register(t1);
-Texture2D tSpecMap : register(t2);
-Texture2D tRoughMetalFresnel : register(t2); //R: Roughness, G: Metal
-Texture2D tEmissiveMap : register(t3);
-Texture2D tEnvMap : register(t4);
-Texture3D tVolumeMap : register(t5);
-TextureCube tEnvCubeMap : register(t4);
+Texture2D t01 : register(t0);
+TextureCube t01Cube : register(t0);
+Texture2D tGbuffer01 : register(t0);
+Texture2D t02 : register(t1);
+Texture2D tGbuffer02 : register(t1);
+Texture2D t03 : register(t2);
+Texture2D tGbuffer03 : register(t2);
+//Texture2D tRoughMetalFresnel : register(t2); //R: Roughness, G: Metal
+Texture2D t04 : register(t3);
+Texture2D t05 : register(t4);
+TextureCube t05Cube : register(t4);
+Texture3D t06 : register(t5);
+Texture3D t07 : register(t6);
+Texture3D t08 : register(t7);
 Texture2D tLightRampMap : register(t8);
 Texture2D tLightSpotMap : register(t9);
 TextureCube tLightCubeMap : register(t9);
@@ -68,17 +74,19 @@ Texture2D tLightBuffer : register(t14);
 TextureCube tZoneCubeMap : register(t15);
 Texture3D tZoneVolumeMap : register(t15);
 
-SamplerState sDiffMap : register(s0);
-SamplerState sDiffCubeMap : register(s0);
-SamplerState sAlbedoBuffer : register(s0);
-SamplerState sNormalMap : register(s1);
-SamplerState sNormalBuffer : register(s1);
-SamplerState sSpecMap : register(s2);
-SamplerState sRoughMetalFresnel : register(s2); //R: Roughness, G: Metal 
-SamplerState sEmissiveMap : register(s3);
-SamplerState sEnvMap : register(s4);
-SamplerState sVolumeMap : register(s5);
-SamplerState sEnvCubeMap : register(s4);
+SamplerState s01 : register(s0);
+SamplerState s01Cube : register(s0);
+SamplerState sGbuffer01 : register(s0);
+SamplerState s02 : register(s1);
+SamplerState sGBuffer02 : register(s1);
+SamplerState s03 : register(s2);
+//SamplerState sRoughMetalFresnel : register(s2); //R: Roughness, G: Metal 
+SamplerState s04 : register(s3);
+SamplerState s05 : register(s4);
+SamplerState s05Cube : register(s4);
+SamplerState s06 : register(s5);
+SamplerState s07 : register(s6);
+SamplerState s08 : register(s7);
 SamplerState sLightRampMap : register(s8);
 SamplerState sLightSpotMap : register(s9);
 SamplerState sLightCubeMap : register(s9);

@@ -2687,6 +2687,7 @@ void Graphics::CreateResolveTexture()
 void Graphics::SetTextureUnitMappings()
 {
     textureUnits_["01"] = TU_01;
+	textureUnits_["01Cube"] = TU_01;
     textureUnits_["GBuffer01"] = TU_01;
     textureUnits_["02"] = TU_02;
     textureUnits_["GBuffer02"] = TU_02;
@@ -2694,6 +2695,7 @@ void Graphics::SetTextureUnitMappings()
 	textureUnits_["GBuffer03"] = TU_03;
     textureUnits_["04"] = TU_04;
     textureUnits_["05"] = TU_05;
+	textureUnits_["05Cube"] = TU_05;
     textureUnits_["LightRampMap"] = TU_LIGHTRAMP;
     textureUnits_["LightSpotMap"] = TU_LIGHTSHAPE;
     textureUnits_["LightCubeMap"] = TU_LIGHTSHAPE;

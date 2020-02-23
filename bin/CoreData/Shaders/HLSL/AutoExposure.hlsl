@@ -73,46 +73,46 @@ void PS(float2 iTexCoord : TEXCOORD0,
 {
     #ifdef LUMINANCE64
     float logLumSum = 0.0;
-    logLumSum += log(dot(Sample2D(DiffMap, iTexCoord + float2(0.0, 0.0) * cHDR128InvSize).rgb, LumWeights) + 1e-5);
-    logLumSum += log(dot(Sample2D(DiffMap, iTexCoord + float2(0.0, 2.0) * cHDR128InvSize).rgb, LumWeights) + 1e-5);
-    logLumSum += log(dot(Sample2D(DiffMap, iTexCoord + float2(2.0, 2.0) * cHDR128InvSize).rgb, LumWeights) + 1e-5);
-    logLumSum += log(dot(Sample2D(DiffMap, iTexCoord + float2(2.0, 0.0) * cHDR128InvSize).rgb, LumWeights) + 1e-5);
+    logLumSum += log(dot(Sample2D(01, iTexCoord + float2(0.0, 0.0) * cHDR128InvSize).rgb, LumWeights) + 1e-5);
+    logLumSum += log(dot(Sample2D(01, iTexCoord + float2(0.0, 2.0) * cHDR128InvSize).rgb, LumWeights) + 1e-5);
+    logLumSum += log(dot(Sample2D(01, iTexCoord + float2(2.0, 2.0) * cHDR128InvSize).rgb, LumWeights) + 1e-5);
+    logLumSum += log(dot(Sample2D(01, iTexCoord + float2(2.0, 0.0) * cHDR128InvSize).rgb, LumWeights) + 1e-5);
     oColor = logLumSum;
     #endif
 
     #ifdef LUMINANCE16
     #ifndef D3D11
-    oColor = GatherAvgLum(sDiffMap, iTexCoord, cLum64InvSize);
+    oColor = GatherAvgLum(s01, iTexCoord, cLum64InvSize);
     #else
-    oColor = GatherAvgLum(tDiffMap, sDiffMap, iTexCoord, cLum64InvSize);
+    oColor = GatherAvgLum(t01, s01, iTexCoord, cLum64InvSize);
     #endif
     #endif
 
     #ifdef LUMINANCE4
     #ifndef D3D11
-    oColor = GatherAvgLum(sDiffMap, iTexCoord, cLum16InvSize);
+    oColor = GatherAvgLum(s01, iTexCoord, cLum16InvSize);
     #else
-    oColor = GatherAvgLum(tDiffMap, sDiffMap, iTexCoord, cLum16InvSize);
+    oColor = GatherAvgLum(t01, s01, iTexCoord, cLum16InvSize);
     #endif
     #endif
 
     #ifdef LUMINANCE1
     #ifndef D3D11
-    oColor = exp(GatherAvgLum(sDiffMap, iTexCoord, cLum4InvSize) / 16.0);
+    oColor = exp(GatherAvgLum(s01, iTexCoord, cLum4InvSize) / 16.0);
     #else
-    oColor = exp(GatherAvgLum(tDiffMap, sDiffMap, iTexCoord, cLum4InvSize) / 16.0);
+    oColor = exp(GatherAvgLum(t01, s01, iTexCoord, cLum4InvSize) / 16.0);
     #endif
     #endif
 
     #ifdef ADAPTLUMINANCE
-    float adaptedLum = Sample2D(DiffMap, iTexCoord).r;
-    float lum = clamp(Sample2D(NormalMap, iTexCoord).r, cAutoExposureLumRange.x, cAutoExposureLumRange.y);
+    float adaptedLum = Sample2D(01, iTexCoord).r;
+    float lum = clamp(Sample2D(02, iTexCoord).r, cAutoExposureLumRange.x, cAutoExposureLumRange.y);
     oColor = adaptedLum + (lum - adaptedLum) * (1.0 - exp(-cDeltaTimePS * cAutoExposureAdaptRate));
     #endif
 
     #ifdef EXPOSE
-    float3 color = Sample2D(DiffMap, iScreenPos).rgb;
-    float adaptedLum = Sample2D(NormalMap, iTexCoord).r;
+    float3 color = Sample2D(01, iScreenPos).rgb;
+    float adaptedLum = Sample2D(02, iTexCoord).r;
     oColor = float4(color * (cAutoExposureMiddleGrey / adaptedLum), 1.0);
     #endif
 }

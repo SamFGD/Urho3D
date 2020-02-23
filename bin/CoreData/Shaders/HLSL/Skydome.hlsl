@@ -18,5 +18,5 @@ void VS(float4 iPos : POSITION,
 void PS(float2 iTexCoord : TEXCOORD0, 
         out float4 oColor : OUTCOLOR0)
 {
-    oColor = cMatDiffColor * Sample2D(DiffMap, iTexCoord);
+    oColor = cMatDiffColor * Sample2D(01, iTexCoord);
 }

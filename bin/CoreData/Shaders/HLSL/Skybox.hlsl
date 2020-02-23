@@ -20,7 +20,7 @@ void VS(float4 iPos : POSITION,
 void PS(float3 iTexCoord : TEXCOORD0,
     out float4 oColor : OUTCOLOR0)
 {
-    float4 sky = cMatDiffColor * SampleCube(DiffCubeMap, iTexCoord);
+    float4 sky = cMatDiffColor * SampleCube(01Cube, iTexCoord);
     #ifdef HDRSCALE
         sky = pow(sky + clamp((cAmbientColor.a - 1.0) * 0.1, 0.0, 0.25), max(cAmbientColor.a, 1.0)) * clamp(cAmbientColor.a, 0.0, 1.0);
     #endif

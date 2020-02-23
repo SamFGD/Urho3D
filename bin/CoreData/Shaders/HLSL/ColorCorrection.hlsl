@@ -17,10 +17,10 @@ void VS(float4 iPos : POSITION,
 void PS(float2 iScreenPos : TEXCOORD0,
     out float4 oColor : OUTCOLOR0)
 {
-    float3 color = Sample2D(DiffMap, iScreenPos).rgb;
+    float3 color = Sample2D(01, iScreenPos).rgb;
     #ifndef D3D11
-        oColor = float4(ColorCorrection(color, sVolumeMap), 1.0);
+        oColor = float4(ColorCorrection(color, s06), 1.0);
     #else
-        oColor = float4(ColorCorrection(color, tVolumeMap, sVolumeMap), 1.0);
+        oColor = float4(ColorCorrection(color, t06, s06), 1.0);
     #endif
 }

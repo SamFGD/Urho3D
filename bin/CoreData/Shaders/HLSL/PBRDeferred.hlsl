@@ -62,9 +62,9 @@ void PS(
         #else
             float3 worldPos = iFarRay * depth;
         #endif
-        const float4 albedoInput = Sample2DLod0(AlbedoBuffer, iScreenPos);
-        const float4 normalInput = Sample2DLod0(NormalBuffer, iScreenPos);
-        const float4 specularInput = Sample2DLod0(SpecMap, iScreenPos);
+        const float4 albedoInput = Sample2DLod0(GBuffer01, iScreenPos);
+        const float4 normalInput = Sample2DLod0(GBuffer02, iScreenPos);
+        const float4 specularInput = Sample2DLod0(GBuffer03, iScreenPos);
     #else
         float depth = Sample2DProj(DepthBuffer, iScreenPos).r;
         #ifdef HWDEPTH
@@ -75,9 +75,9 @@ void PS(
         #else
             float3 worldPos = iFarRay * depth / iScreenPos.w;
         #endif
-        const float4 albedoInput = Sample2DProj(AlbedoBuffer, iScreenPos);
-        const float4 normalInput = Sample2DProj(NormalBuffer, iScreenPos);
-        const float4 specularInput = Sample2DProj(SpecMap, iScreenPos);
+        const float4 albedoInput = Sample2DProj(GBuffer01, iScreenPos);
+        const float4 normalInput = Sample2DProj(GBuffer02, iScreenPos);
+        const float4 specularInput = Sample2DProj(GBuffer03, iScreenPos);
     #endif
 
     // Position acquired via near/far ray is relative to camera. Bring position to world space
