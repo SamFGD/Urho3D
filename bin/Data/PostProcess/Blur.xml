@@ -5,27 +5,27 @@
         <parameter name="BlurDir" value="1.0 0.0" />
         <parameter name="BlurRadius" value="2.0" />
         <parameter name="BlurSigma" value="2.0" />
-        <texture unit="diffuse" name="viewport" />
+        <texture unit="01" name="viewport" />
     </command>
     <command type="quad" tag="Blur" vs="Blur" ps="Blur" psdefines="BLUR3" output="blurv">
         <parameter name="BlurDir" value="0.0 1.0" />
         <parameter name="BlurRadius" value="2.0" />
         <parameter name="BlurSigma" value="2.0" />
-        <texture unit="diffuse" name="blurh" />
+        <texture unit="01" name="blurh" />
     </command>
     <command type="quad" tag="Blur" vs="Blur" ps="Blur" psdefines="BLUR3" output="blurh">
         <parameter name="BlurDir" value="1.0 0.0" />
         <parameter name="BlurRadius" value="1.0" />
         <parameter name="BlurSigma" value="2.0" />
-        <texture unit="diffuse" name="blurv" />
+        <texture unit="01" name="blurv" />
     </command>
     <command type="quad" tag="Blur" vs="Blur" ps="Blur" psdefines="BLUR3" output="blurv">
         <parameter name="BlurDir" value="0.0 1.0" />
         <parameter name="BlurRadius" value="1.0" />
         <parameter name="BlurSigma" value="2.0" />
-        <texture unit="diffuse" name="blurh" />
+        <texture unit="01" name="blurh" />
     </command>
     <command type="quad" tag="Blur" vs="CopyFramebuffer" ps="CopyFramebuffer" output="viewport">
-        <texture unit="diffuse" name="blurv" />
+        <texture unit="01" name="blurv" />
     </command>
 </renderpath>

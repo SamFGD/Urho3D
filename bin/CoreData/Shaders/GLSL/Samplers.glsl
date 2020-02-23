@@ -1,9 +1,11 @@
 #ifdef COMPILEPS
 uniform sampler2D s01;
+uniform samplerCube s01Cube;
 uniform sampler2D s02;
 uniform sampler2D s03;
 uniform sampler2D s04;
 uniform sampler3D s05;
+uniform sampler3D s05Cube;
 uniform sampler2D sLightRampMap;
 uniform sampler2D sLightSpotMap;
 uniform samplerCube sLightCubeMap;

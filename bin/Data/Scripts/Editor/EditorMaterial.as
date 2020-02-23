@@ -249,7 +249,7 @@ void RefreshMaterialTextures(bool fullUpdate = true)
             String tuName = GetTextureUnitName(TextureUnit(i));
             tuName[0] = ToUpper(tuName[0]);
 
-            UIElement@ parent = CreateAttributeEditorParentWithSeparatedLabel(list, "Unit " + i + " " + tuName, i, 0, false);
+            UIElement@ parent = CreateAttributeEditorParentWithSeparatedLabel(list, "Unit " + tuName, i, 0, false);
 
             UIElement@ container = UIElement();
             container.SetLayout(LM_HORIZONTAL, 4, IntRect(10, 0, 4, 0));

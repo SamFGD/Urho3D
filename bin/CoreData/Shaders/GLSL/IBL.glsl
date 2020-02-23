@@ -53,8 +53,8 @@
             vec3 cube = textureLod(sZoneCubeMap, FixCubeLookup(reflectVec), mipSelect).rgb;
             vec3 cubeD = textureLod(sZoneCubeMap, FixCubeLookup(wsNormal), 9.0).rgb;
         #else
-            vec3 cube = textureCube(sEnvCubeMap, FixCubeLookup(reflectVec)).rgb;
-            vec3 cubeD = textureCube(sEnvCubeMap, FixCubeLookup(wsNormal)).rgb;
+            vec3 cube = textureCube(s05Cube, FixCubeLookup(reflectVec)).rgb;
+            vec3 cubeD = textureCube(s05Cube, FixCubeLookup(wsNormal)).rgb;
         #endif
 
         // Fake the HDR texture

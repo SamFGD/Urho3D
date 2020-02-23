@@ -589,8 +589,8 @@ void Batch::Prepare(View* view, Camera* camera, bool setModelTransform, bool all
         graphics->SetTexture(TU_ZONE, zone_->GetZoneTexture());
 #else
     // On OpenGL ES set the zone texture to the environment unit instead
-    if (zone_ && zone_->GetZoneTexture() && graphics->HasTextureUnit(TU_ENVIRONMENT))
-        graphics->SetTexture(TU_ENVIRONMENT, zone_->GetZoneTexture());
+    if (zone_ && zone_->GetZoneTexture() && graphics->HasTextureUnit(TU_05))
+        graphics->SetTexture(TU_05, zone_->GetZoneTexture());
 #endif
 
     // Set material-specific shader parameters and textures
