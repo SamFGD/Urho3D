@@ -7,10 +7,10 @@
     <command type="forwardlights" pass="light" />
     <command type="scenepass" pass="postopaque" />
     <command type="scenepass" pass="refract">
-        <texture unit="environment" name="viewport" />
+        <texture unit="05" name="viewport" />
     </command>
     <command type="scenepass" pass="alpha" vertexlights="true" sort="backtofront" metadata="alpha">
-        <texture unit="depth" name="depth" />
+        <texture unit="depthbuffer" name="depth" />
     </command>
     <command type="scenepass" pass="postalpha" sort="backtofront" />
 </renderpath>

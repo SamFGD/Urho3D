@@ -1,18 +1,19 @@
 #ifdef COMPILEPS
-uniform sampler2D sDiffMap;
-uniform samplerCube sDiffCubeMap;
-uniform sampler2D sNormalMap;
-uniform sampler2D sSpecMap;
-uniform sampler2D sEmissiveMap;
-uniform sampler2D sEnvMap;
-uniform samplerCube sEnvCubeMap;
+uniform sampler2D s01;
+uniform sampler2D s02;
+uniform sampler2D s03;
+uniform sampler2D s04;
+uniform sampler3D s05;
 uniform sampler2D sLightRampMap;
 uniform sampler2D sLightSpotMap;
 uniform samplerCube sLightCubeMap;
 #ifndef GL_ES
-    uniform sampler3D sVolumeMap;
-    uniform sampler2D sAlbedoBuffer;
-    uniform sampler2D sNormalBuffer;
+    uniform sampler2D sGBuffer01;
+    uniform sampler2D sGBuffer02;
+    uniform sampler2D sGBuffer03;
+	uniform sampler3D s06;
+	uniform sampler3D s07;
+	uniform sampler3D s08;
     uniform sampler2D sDepthBuffer;
     uniform sampler2D sLightBuffer;
     #ifdef VSM_SHADOW

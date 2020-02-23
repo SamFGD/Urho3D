@@ -10,18 +10,18 @@
     </command>
     <command type="clear" color="0 0 0 0" output="light" />
     <command type="lightvolumes" vs="PrepassLight" ps="PrepassLight" output="light">
-        <texture unit="normal" name="normal" />
-        <texture unit="depth" name="depth" />
+        <texture unit="02" name="normal" />
+        <texture unit="depthbuffer" name="depth" />
     </command>
     <command type="scenepass" pass="material" vertexlights="true">
-        <texture unit="light" name="light" />
+        <texture unit="lightbuffer" name="light" />
     </command>
     <command type="scenepass" pass="postopaque" />
     <command type="scenepass" pass="refract">
-        <texture unit="environment" name="viewport" />
+        <texture unit="05" name="viewport" />
     </command>
     <command type="scenepass" pass="alpha" vertexlights="true" sort="backtofront" metadata="alpha">
-        <texture unit="depth" name="depth" />
+        <texture unit="depthbuffer" name="depth" />
     </command>
     <command type="scenepass" pass="postalpha" sort="backtofront" />
 </renderpath>

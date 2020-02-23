@@ -737,7 +737,7 @@ void PS()
 
     gl_FragColor = FxaaPixelShader(
         vScreenPos,                         // vec2 pos,
-        sDiffMap,                           // sampler2D tex,
+        s01,                           		// sampler2D tex,
         rcpFrame,                           // vec2 fxaaQualityRcpFrame,
         0.75,                               // float fxaaQualitySubpix,
         0.166,                              // float fxaaQualityEdgeThreshold,

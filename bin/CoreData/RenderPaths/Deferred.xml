@@ -11,16 +11,16 @@
         <output index="3" name="depth" />
     </command>
     <command type="lightvolumes" vs="DeferredLight" ps="DeferredLight">
-        <texture unit="albedo" name="albedo" />
-        <texture unit="normal" name="normal" />
-        <texture unit="depth" name="depth" />
+        <texture unit="01" name="albedo" />
+        <texture unit="02" name="normal" />
+        <texture unit="depthbuffer" name="depth" />
     </command>
     <command type="scenepass" pass="postopaque" />
     <command type="scenepass" pass="refract">
-        <texture unit="environment" name="viewport" />
+        <texture unit="05" name="viewport" />
     </command>
     <command type="scenepass" pass="alpha" vertexlights="true" sort="backtofront" metadata="alpha">
-        <texture unit="depth" name="depth" />
+        <texture unit="depthbuffer" name="depth" />
     </command>
     <command type="scenepass" pass="postalpha" sort="backtofront" />
 </renderpath>

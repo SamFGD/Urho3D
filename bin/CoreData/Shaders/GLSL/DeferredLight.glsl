@@ -49,8 +49,8 @@ void PS()
         #else
             vec3 worldPos = vFarRay * depth;
         #endif
-        vec4 albedoInput = texture2D(sAlbedoBuffer, vScreenPos);
-        vec4 normalInput = texture2D(sNormalBuffer, vScreenPos);
+        vec4 albedoInput = texture2D(sGBuffer01, vScreenPos);
+        vec4 normalInput = texture2D(sGBuffer02, vScreenPos);
     #else
         #ifdef HWDEPTH
             float depth = ReconstructDepth(texture2DProj(sDepthBuffer, vScreenPos).r);
@@ -62,8 +62,8 @@ void PS()
         #else
             vec3 worldPos = vFarRay * depth / vScreenPos.w;
         #endif
-        vec4 albedoInput = texture2DProj(sAlbedoBuffer, vScreenPos);
-        vec4 normalInput = texture2DProj(sNormalBuffer, vScreenPos);
+        vec4 albedoInput = texture2DProj(sGBuffer01, vScreenPos);
+        vec4 normalInput = texture2DProj(sGBuffer02, vScreenPos);
     #endif
 
     // Position acquired via near/far ray is relative to camera. Bring position to world space

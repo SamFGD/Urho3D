@@ -5,10 +5,10 @@
     <command type="forwardlights" pass="light" depthstencil="depth" />
     <command type="scenepass" pass="postopaque" depthstencil="depth" />
     <command type="scenepass" pass="refract" depthstencil="depth">
-        <texture unit="environment" name="viewport" />
+        <texture unit="05" name="viewport" />
     </command>
     <command type="scenepass" pass="alpha" vertexlights="true" sort="backtofront" metadata="alpha" depthstencil="depth" psdefines="HWDEPTH">
-        <texture unit="depth" name="depth" />
+        <texture unit="depthbuffer" name="depth" />
     </command>
     <command type="scenepass" pass="postalpha" sort="backtofront" depthstencil="depth" />
 </renderpath>

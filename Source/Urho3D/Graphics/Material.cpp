@@ -49,7 +49,7 @@ namespace Urho3D
 {
 
 extern const char* wrapModeNames[];
-//Can only contain 16 values because they are printed in the editor etc SFGD 200221
+//16 desktop else 8 total valuees max. Controls renderpath unit names and are printed in the editor
 static const char* textureUnitNames[] =
 {
     "01",
