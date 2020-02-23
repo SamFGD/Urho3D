@@ -140,7 +140,7 @@ void CreateScene()
             // as its diffuse texture, then assign the material to the screen plane object
             Material@ renderMaterial = Material();
             renderMaterial.SetTechnique(0, cache.GetResource("Technique", "Techniques/DiffUnlit.xml"));
-            renderMaterial.textures[TU_DIFFUSE] = renderTexture;
+            renderMaterial.textures[TU_01] = renderTexture;
             // Since the screen material is on top of the box model and may Z-fight, use negative depth bias
             // to push it forward (particularly necessary on mobiles with possibly less Z resolution)
             renderMaterial.depthBias = BiasParameters(-0.001, 0.0);

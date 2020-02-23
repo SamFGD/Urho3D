@@ -1994,7 +1994,7 @@ void Renderer::BlurShadowMap(View* view, Texture2D* shadowMap, float blurScale)
     graphics_->SetViewport(IntRect(0, 0, shadowMap->GetWidth(), shadowMap->GetHeight()));
     graphics_->SetShaderParameter(blurOffsetParam, Vector2(0.0f, shadowSoftness_ * blurScale / shadowMap->GetHeight()));
 
-    graphics_->SetTexture(TU_DIFFUSE, tmpBuffer);
+    graphics_->SetTexture(TU_01, tmpBuffer);
     view->DrawFullscreenQuad(true);
 }
 }

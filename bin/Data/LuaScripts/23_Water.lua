@@ -166,7 +166,7 @@ function SetupViewport()
     local rttViewport = Viewport:new(scene_, reflectionCamera)
     surface:SetViewport(0, rttViewport)
     local waterMat = cache:GetResource("Material", "Materials/Water.xml")
-    waterMat:SetTexture(TU_DIFFUSE, renderTexture)
+    waterMat:SetTexture(TU_01, renderTexture)
 end
 
 function SubscribeToEvents()

@@ -320,7 +320,7 @@ void CrowdNavigation::CreateMovingBarrels(DynamicNavigationMesh* navMesh)
     model->SetModel(cache->GetResource<Model>("Models/Cylinder.mdl"));
     auto* material = cache->GetResource<Material>("Materials/StoneTiled.xml");
     model->SetMaterial(material);
-    material->SetTexture(TU_DIFFUSE, cache->GetResource<Texture2D>("Textures/TerrainDetail2.dds"));
+    material->SetTexture(TU_01, cache->GetResource<Texture2D>("Textures/TerrainDetail2.dds"));
     model->SetCastShadows(true);
     for (unsigned i = 0;  i < 20; ++i)
     {

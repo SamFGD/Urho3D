@@ -9232,13 +9232,13 @@ Properties:
 
 ### TextureUnit
 
-- int TU_DIFFUSE
-- int TU_ALBEDOBUFFER
-- int TU_NORMAL
-- int TU_NORMALBUFFER
-- int TU_SPECULAR
-- int TU_EMISSIVE
-- int TU_ENVIRONMENT
+- int TU_01
+- int TU_GBUFFER01
+- int TU_02
+- int TU_GBUFFER02
+- int TU_03
+- int TU_04
+- int TU_05
 
 ### TextureUsage
 

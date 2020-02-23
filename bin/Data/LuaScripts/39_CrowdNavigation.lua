@@ -256,7 +256,7 @@ function CreateMovingBarrels(navMesh)
     local model = barrel:CreateComponent("StaticModel")
     model.model = cache:GetResource("Model", "Models/Cylinder.mdl")
     model.material = cache:GetResource("Material", "Materials/StoneTiled.xml")
-    model.material:SetTexture(TU_DIFFUSE, cache:GetResource("Texture2D", "Textures/TerrainDetail2.dds"))
+    model.material:SetTexture(TU_01, cache:GetResource("Texture2D", "Textures/TerrainDetail2.dds"))
     model.castShadows = true
     for i = 1, 20 do
         local clone = barrel:Clone()

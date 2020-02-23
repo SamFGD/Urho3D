@@ -172,7 +172,7 @@ void SetupViewports()
     Viewport@ rttViewport = Viewport(scene_, reflectionCamera);
     surface.viewports[0] = rttViewport;
     Material@ waterMat = cache.GetResource("Material", "Materials/Water.xml");
-    waterMat.textures[TU_DIFFUSE] = renderTexture;
+    waterMat.textures[TU_01] = renderTexture;
 }
 
 void SubscribeToEvents()

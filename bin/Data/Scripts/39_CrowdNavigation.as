@@ -271,7 +271,7 @@ void CreateMovingBarrels(DynamicNavigationMesh@ navMesh)
     model.model = cache.GetResource("Model", "Models/Cylinder.mdl");
     Material@ material = cache.GetResource("Material", "Materials/StoneTiled.xml");
     model.material = material;
-    material.textures[TU_DIFFUSE] = cache.GetResource("Texture2D", "Textures/TerrainDetail2.dds");
+    material.textures[TU_01] = cache.GetResource("Texture2D", "Textures/TerrainDetail2.dds");
     model.castShadows = true;
     for (uint i = 0;  i < 20; ++i)
     {

@@ -224,7 +224,7 @@ void Water::SetupViewport()
     SharedPtr<Viewport> rttViewport(new Viewport(context_, scene_, reflectionCamera));
     surface->SetViewport(0, rttViewport);
     auto* waterMat = cache->GetResource<Material>("Materials/Water.xml");
-    waterMat->SetTexture(TU_DIFFUSE, renderTexture);
+    waterMat->SetTexture(TU_01, renderTexture);
 }
 
 void Water::SubscribeToEvents()
