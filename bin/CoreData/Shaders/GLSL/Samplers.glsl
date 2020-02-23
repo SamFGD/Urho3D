@@ -1,11 +1,11 @@
 #ifdef COMPILEPS
 uniform sampler2D sTex2d01;
-uniform samplerCube s01Cube;
+uniform samplerCube sCube01;
 uniform sampler2D sTex2d02;
 uniform sampler2D sTex2d03;
 uniform sampler2D sTex2d04;
 uniform sampler2D sTex2d05;
-uniform samplerCube s05Cube;
+uniform samplerCube sCube05;
 uniform sampler2D sLightRampMap;
 uniform sampler2D sLightSpotMap;
 uniform samplerCube sLightCubeMap;

@@ -15,7 +15,7 @@ void VS()
 
 void PS()
 {
-    vec4 sky = cMatDiffColor * textureCube(s01Cube, vTexCoord);
+    vec4 sky = cMatDiffColor * textureCube(sCube01, vTexCoord);
     #ifdef HDRSCALE
         sky = pow(sky + clamp((cAmbientColor.a - 1.0) * 0.1, 0.0, 0.25), max(vec4(cAmbientColor.a), 1.0)) * clamp(cAmbientColor.a, 0.0, 1.0);
     #endif

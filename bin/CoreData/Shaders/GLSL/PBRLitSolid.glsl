@@ -245,7 +245,7 @@ void PS()
         #endif
 
         #ifdef ENVCUBEMAP
-            finalColor += cMatEnvMapColor * textureCube(s05Cube, reflect(vReflectionVec, normal)).rgb;
+            finalColor += cMatEnvMapColor * textureCube(sCube05, reflect(vReflectionVec, normal)).rgb;
         #endif
         #ifdef LIGHTMAP
             finalColor += texture2D(sTex2d04, vTexCoord2).rgb * diffColor.rgb;
