@@ -27,9 +27,9 @@
 #else
 	uniform sampler2D sTextureUnit4;
 #endif
-#ifdef CUBE02
+#ifdef CUBE05
 	uniform samplerCube sTextureUnit5;
-#elif TEX3D02
+#elif TEX3D05
 	uniform sampler3D sTextureUnit5;
 #else
 	uniform sampler2D sTextureUnit5;
