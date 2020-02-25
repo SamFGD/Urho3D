@@ -300,7 +300,7 @@ bool Material::BeginLoadXML(Deserializer& source)
                     if (!type && textureElem.HasAttribute("unit"))
                     {
                         TextureUnit unit = ParseTextureUnitName(textureElem.GetAttribute("unit"));
-                        if (unit == TU_06)
+                        if (unit == TU_06)	//I don't need this with my new texture units SamFGD 200225
                             type = Texture3D::GetTypeStatic();
                     }
 
@@ -450,7 +450,7 @@ bool Material::Load(const XMLElement& source)
             {
 #ifdef DESKTOP_GRAPHICS
                 StringHash type = ParseTextureTypeXml(cache, name);
-                if (!type && unit == TU_06)
+                if (!type && unit == TU_06)	//Can be removed because of new texture units. SamFGD 200225.
                     type = Texture3D::GetTypeStatic();
 
                 if (type == Texture3D::GetTypeStatic())
