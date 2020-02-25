@@ -191,7 +191,7 @@ void PS(
 {
     // Get material diffuse albedo
     #ifdef DIFFMAP
-        const float4 diffInput = Sample2D(Tex2d01, iTexCoord.xy);
+        const float4 diffInput = Sample2D(TextureUnit1, iTexCoord.xy);
         #ifdef ALPHAMASK
             if (diffInput.a < 0.5)
                 discard;
@@ -207,7 +207,7 @@ void PS(
 
     // Get material specular albedo
     #ifdef METALLIC // METALNESS
-        float4 roughMetalSrc = Sample2D(Tex2d03, iTexCoord.xy);
+        float4 roughMetalSrc = Sample2D(TextureUnit3, iTexCoord.xy);
 
         float roughness = roughMetalSrc.r + cRoughness;
         float metalness = roughMetalSrc.g + cMetallic;
@@ -233,7 +233,7 @@ void PS(
     #endif
 
     #ifdef NORMALMAP
-        const float3 nn = DecodeNormal(Sample2D(Tex2d02, iTexCoord.xy));
+        const float3 nn = DecodeNormal(Sample2D(TextureUnit2, iTexCoord.xy));
         //nn.rg *= 2.0;
         const float3 normal = normalize(mul(nn, tbn));
     #else
@@ -304,7 +304,7 @@ void PS(
         float3 finalColor = iVertexLight * diffColor.rgb;
         #ifdef AO
             // If using AO, the vertex light ambient is black, calculate occluded ambient here
-            finalColor += Sample2D(Tex2d04, iTexCoord2).rgb * cAmbientColor.rgb * diffColor.rgb;
+            finalColor += Sample2D(TextureUnit4, iTexCoord2).rgb * cAmbientColor.rgb * diffColor.rgb;
         #endif
 
         #ifdef MATERIAL
@@ -328,13 +328,13 @@ void PS(
         #endif
 
         #ifdef ENVCUBEMAP
-            finalColor += cMatEnvMapColor * SampleCube(Cube05, reflect(iReflectionVec, normal)).rgb;
+            finalColor += cMatEnvMapColor * SampleCube(TextureUnit5, reflect(iReflectionVec, normal)).rgb;
         #endif
         #ifdef LIGHTMAP
-            finalColor += Sample2D(Tex2d04, iTexCoord2).rgb * diffColor.rgb;
+            finalColor += Sample2D(TextureUnit4, iTexCoord2).rgb * diffColor.rgb;
         #endif
         #ifdef EMISSIVEMAP
-            finalColor += cMatEmissiveColor * Sample2D(Tex2d04, iTexCoord.xy).rgb;
+            finalColor += cMatEmissiveColor * Sample2D(TextureUnit4, iTexCoord.xy).rgb;
         #else
             finalColor += cMatEmissiveColor;
         #endif

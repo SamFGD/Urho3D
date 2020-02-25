@@ -28,33 +28,33 @@ void PS(float2 iTexCoord : TEXCOORD0,
 {
     #ifdef BLUR3
         #ifndef D3D11 
-            oColor = GaussianBlur(3, cBlurDir, cBlurHInvSize * cBlurRadius, cBlurSigma, sTex2d01, iTexCoord);
+            oColor = GaussianBlur(3, cBlurDir, cBlurHInvSize * cBlurRadius, cBlurSigma, sTextureUnit1, iTexCoord);
         #else
-            oColor = GaussianBlur(3, cBlurDir, cBlurHInvSize * cBlurRadius, cBlurSigma, tTex2d01, sTex2d01, iTexCoord);
+            oColor = GaussianBlur(3, cBlurDir, cBlurHInvSize * cBlurRadius, cBlurSigma, tTex2d01, sTextureUnit1, iTexCoord);
         #endif
     #endif
 
     #ifdef BLUR5
         #ifndef D3D11
-            oColor = GaussianBlur(5, cBlurDir, cBlurHInvSize * cBlurRadius, cBlurSigma, sTex2d01, iTexCoord);
+            oColor = GaussianBlur(5, cBlurDir, cBlurHInvSize * cBlurRadius, cBlurSigma, sTextureUnit1, iTexCoord);
         #else
-            oColor = GaussianBlur(5, cBlurDir, cBlurHInvSize * cBlurRadius, cBlurSigma, tTex2d01, sTex2d01, iTexCoord);
+            oColor = GaussianBlur(5, cBlurDir, cBlurHInvSize * cBlurRadius, cBlurSigma, tTex2d01, sTextureUnit1, iTexCoord);
         #endif
     #endif
 
     #ifdef BLUR7
         #ifndef D3D11
-            oColor = GaussianBlur(7, cBlurDir, cBlurHInvSize * cBlurRadius, cBlurSigma, sTex2d01, iTexCoord);
+            oColor = GaussianBlur(7, cBlurDir, cBlurHInvSize * cBlurRadius, cBlurSigma, sTextureUnit1, iTexCoord);
         #else
-            oColor = GaussianBlur(7, cBlurDir, cBlurHInvSize * cBlurRadius, cBlurSigma, tTex2d01, sTex2d01, iTexCoord);
+            oColor = GaussianBlur(7, cBlurDir, cBlurHInvSize * cBlurRadius, cBlurSigma, tTex2d01, sTextureUnit1, iTexCoord);
         #endif
     #endif
 
     #ifdef BLUR9
         #ifndef D3D11
-            oColor = GaussianBlur(9, cBlurDir, cBlurHInvSize * cBlurRadius, cBlurSigma, sTex2d01, iTexCoord);
+            oColor = GaussianBlur(9, cBlurDir, cBlurHInvSize * cBlurRadius, cBlurSigma, sTextureUnit1, iTexCoord);
         #else
-            oColor = GaussianBlur(9, cBlurDir, cBlurHInvSize * cBlurRadius, cBlurSigma, tTex2d01, sTex2d01, iTexCoord);
+            oColor = GaussianBlur(9, cBlurDir, cBlurHInvSize * cBlurRadius, cBlurSigma, tTex2d01, sTextureUnit1, iTexCoord);
         #endif
     #endif
 }

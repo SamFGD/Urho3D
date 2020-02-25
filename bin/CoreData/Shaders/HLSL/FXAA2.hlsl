@@ -48,11 +48,11 @@ void PS(float2 iScreenPos : TEXCOORD0,
 
     float2 posOffset = cGBufferInvSize.xy * cFXAAParams.x;
 
-    float3 rgbNW = Sample2DLod0(Tex2d01, iScreenPos + float2(-posOffset.x, -posOffset.y)).rgb;
-    float3 rgbNE = Sample2DLod0(Tex2d01, iScreenPos + float2(posOffset.x, -posOffset.y)).rgb;
-    float3 rgbSW = Sample2DLod0(Tex2d01, iScreenPos + float2(-posOffset.x, posOffset.y)).rgb;
-    float3 rgbSE = Sample2DLod0(Tex2d01, iScreenPos + float2(posOffset.x, posOffset.y)).rgb;
-    float3 rgbM  = Sample2DLod0(Tex2d01, iScreenPos).rgb;
+    float3 rgbNW = Sample2DLod0(TextureUnit1, iScreenPos + float2(-posOffset.x, -posOffset.y)).rgb;
+    float3 rgbNE = Sample2DLod0(TextureUnit1, iScreenPos + float2(posOffset.x, -posOffset.y)).rgb;
+    float3 rgbSW = Sample2DLod0(TextureUnit1, iScreenPos + float2(-posOffset.x, posOffset.y)).rgb;
+    float3 rgbSE = Sample2DLod0(TextureUnit1, iScreenPos + float2(posOffset.x, posOffset.y)).rgb;
+    float3 rgbM  = Sample2DLod0(TextureUnit1, iScreenPos).rgb;
 
     float3 luma = float3(0.299, 0.587, 0.114);
     float lumaNW = dot(rgbNW, luma);
@@ -81,11 +81,11 @@ void PS(float2 iScreenPos : TEXCOORD0,
         dir *= cFXAAParams.z;
     
         float3 rgbA = (1.0/2.0) * (
-            Sample2DLod0(Tex2d01, iScreenPos + dir * (1.0/3.0 - 0.5)).xyz +
-            Sample2DLod0(Tex2d01, iScreenPos + dir * (2.0/3.0 - 0.5)).xyz);
+            Sample2DLod0(TextureUnit1, iScreenPos + dir * (1.0/3.0 - 0.5)).xyz +
+            Sample2DLod0(TextureUnit1, iScreenPos + dir * (2.0/3.0 - 0.5)).xyz);
         float3 rgbB = rgbA * (1.0/2.0) + (1.0/4.0) * (
-            Sample2DLod0(Tex2d01, iScreenPos + dir * (0.0/3.0 - 0.5)).xyz +
-            Sample2DLod0(Tex2d01, iScreenPos + dir * (3.0/3.0 - 0.5)).xyz);
+            Sample2DLod0(TextureUnit1, iScreenPos + dir * (0.0/3.0 - 0.5)).xyz +
+            Sample2DLod0(TextureUnit1, iScreenPos + dir * (3.0/3.0 - 0.5)).xyz);
         float lumaB = dot(rgbB, luma);
         
         float3 rgbOut;

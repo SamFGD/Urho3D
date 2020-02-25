@@ -2677,37 +2677,18 @@ void Graphics::ResetCachedState()
 
 void Graphics::SetTextureUnitMappings()
 {
-    textureUnits_["Tex2d01"] = TU_01;
-	textureUnits_["Tex3d01"] = TU_01;
-	textureUnits_["Cube01"] = TU_01;
-    textureUnits_["GBuffer01"] = TU_01;
-    textureUnits_["Tex2d02"] = TU_02;
-	textureUnits_["Tex3d02"] = TU_02;
-	textureUnits_["Cube02"] = TU_02;
-    textureUnits_["GBuffer02"] = TU_02;
-    textureUnits_["Tex2d03"] = TU_03;
-	textureUnits_["Tex3d03"] = TU_03;
-	textureUnits_["Cube03"] = TU_03;
-	textureUnits_["GBuffer03"] = TU_03;
-    textureUnits_["Tex2d04"] = TU_04;
-	textureUnits_["Tex3d04"] = TU_04;
-	textureUnits_["Cube04"] = TU_04;
-    textureUnits_["Tex2d05"] = TU_05;
-	textureUnits_["Tex3d05"] = TU_05;
-	textureUnits_["Cube05"] = TU_05;
+    textureUnits_["TextureUnit1"] = TU_01;
+	textureUnits_["TextureUnit2"] = TU_02;
+	textureUnits_["TextureUnit3"] = TU_03;
+	textureUnits_["TextureUnit4"] = TU_04;
+	textureUnits_["TextureUnit5"] = TU_05;
     textureUnits_["LightRampMap"] = TU_LIGHTRAMP;
     textureUnits_["LightSpotMap"] = TU_LIGHTSHAPE;
     textureUnits_["LightCubeMap"] = TU_LIGHTSHAPE;
     textureUnits_["ShadowMap"] = TU_SHADOWMAP;
-    textureUnits_["Tex2d06"] = TU_06;
-	textureUnits_["Tex3d06"] = TU_06;
-	textureUnits_["Cube06"] = TU_06;
-	textureUnits_["Tex2d07"] = TU_07;
-	textureUnits_["Tex3d07"] = TU_07;
-	textureUnits_["Cube07"] = TU_07;
-	textureUnits_["Tex2d08"] = TU_08;
-	textureUnits_["Tex3d08"] = TU_08;
-	textureUnits_["Cube08"] = TU_08;
+    textureUnits_["TextureUnit6"] = TU_06;
+	textureUnits_["TextureUnit7"] = TU_07;
+	textureUnits_["TextureUnit8"] = TU_08;
     textureUnits_["FaceSelectCubeMap"] = TU_FACESELECT;
     textureUnits_["IndirectionCubeMap"] = TU_INDIRECTION;
     textureUnits_["DepthBuffer"] = TU_DEPTHBUFFER;

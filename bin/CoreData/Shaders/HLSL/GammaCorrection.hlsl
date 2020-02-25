@@ -17,6 +17,6 @@ void VS(float4 iPos : POSITION,
 void PS(float2 iScreenPos : TEXCOORD0,
     out float4 oColor : OUTCOLOR0)
 {
-    float3 color = Sample2D(Tex2d01, iScreenPos).rgb;
+    float3 color = Sample2D(TextureUnit1, iScreenPos).rgb;
     oColor = float4(ToInverseGamma(color), 1.0);
 }
