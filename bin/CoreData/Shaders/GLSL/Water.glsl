@@ -50,7 +50,7 @@ void PS()
     vec2 refractUV = vScreenPos.xy / vScreenPos.w;
     vec2 reflectUV = vReflectUV.xy / vScreenPos.w;
 
-    vec2 noise = (texture2D(sTex2d02, vWaterUV).rg - 0.5) * cNoiseStrength;
+    vec2 noise = (texture2D(sTextureUnit2, vWaterUV).rg - 0.5) * cNoiseStrength;
     refractUV += noise;
     // Do not shift reflect UV coordinate upward, because it will reveal the clipping of geometry below water
     if (noise.y < 0.0)
@@ -58,8 +58,8 @@ void PS()
     reflectUV += noise;
 
     float fresnel = pow(1.0 - clamp(dot(normalize(vEyeVec.xyz), vNormal), 0.0, 1.0), cFresnelPower);
-    vec3 refractColor = texture2D(sTex2d05, refractUV).rgb * cWaterTint;
-    vec3 reflectColor = texture2D(sTex2d01, reflectUV).rgb;
+    vec3 refractColor = texture2D(sTextureUnit5, refractUV).rgb * cWaterTint;
+    vec3 reflectColor = texture2D(sTextureUnit1, reflectUV).rgb;
     vec3 finalColor = mix(refractColor, reflectColor, fresnel);
 
     gl_FragColor = vec4(GetFog(finalColor, GetFogFactor(vEyeVec.w)), 1.0);

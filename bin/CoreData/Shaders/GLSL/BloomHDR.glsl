@@ -33,41 +33,41 @@ void VS()
 void PS()
 {
     #ifdef BRIGHT
-    vec3 color = texture2D(sTex2d01, vScreenPos).rgb;
+    vec3 color = texture2D(sTextureUnit1, vScreenPos).rgb;
     gl_FragColor = vec4(max(color - cBloomHDRThreshold, 0.0), 1.0);
     #endif
 
     #ifdef BLUR16
-    gl_FragColor = GaussianBlur(BlurKernelSize, cBloomHDRBlurDir, cBright16InvSize * cBloomHDRBlurRadius, cBloomHDRBlurSigma, sTex2d01, vScreenPos);
+    gl_FragColor = GaussianBlur(BlurKernelSize, cBloomHDRBlurDir, cBright16InvSize * cBloomHDRBlurRadius, cBloomHDRBlurSigma, sTextureUnit1, vScreenPos);
     #endif
 
     #ifdef BLUR8
-    gl_FragColor = GaussianBlur(BlurKernelSize, cBloomHDRBlurDir, cBright8InvSize * cBloomHDRBlurRadius, cBloomHDRBlurSigma, sTex2d01, vScreenPos);
+    gl_FragColor = GaussianBlur(BlurKernelSize, cBloomHDRBlurDir, cBright8InvSize * cBloomHDRBlurRadius, cBloomHDRBlurSigma, sTextureUnit1, vScreenPos);
     #endif
 
     #ifdef BLUR4
-    gl_FragColor = GaussianBlur(BlurKernelSize, cBloomHDRBlurDir, cBright4InvSize * cBloomHDRBlurRadius, cBloomHDRBlurSigma, sTex2d01, vScreenPos);
+    gl_FragColor = GaussianBlur(BlurKernelSize, cBloomHDRBlurDir, cBright4InvSize * cBloomHDRBlurRadius, cBloomHDRBlurSigma, sTextureUnit1, vScreenPos);
     #endif
 
     #ifdef BLUR2
-    gl_FragColor = GaussianBlur(BlurKernelSize, cBloomHDRBlurDir, cBright2InvSize * cBloomHDRBlurRadius, cBloomHDRBlurSigma, sTex2d01, vScreenPos);
+    gl_FragColor = GaussianBlur(BlurKernelSize, cBloomHDRBlurDir, cBright2InvSize * cBloomHDRBlurRadius, cBloomHDRBlurSigma, sTextureUnit1, vScreenPos);
     #endif
 
     #ifdef COMBINE16
-    gl_FragColor = texture2D(sTex2d01, vScreenPos) + texture2D(sTex2d02, vTexCoord);
+    gl_FragColor = texture2D(sTextureUnit1, vScreenPos) + texture2D(sTextureUnit2, vTexCoord);
     #endif
 
     #ifdef COMBINE8
-    gl_FragColor = texture2D(sTex2d01, vScreenPos) + texture2D(sTex2d02, vTexCoord);
+    gl_FragColor = texture2D(sTextureUnit1, vScreenPos) + texture2D(sTextureUnit2, vTexCoord);
     #endif
 
     #ifdef COMBINE4
-    gl_FragColor = texture2D(sTex2d01, vScreenPos) + texture2D(sTex2d02, vTexCoord);
+    gl_FragColor = texture2D(sTextureUnit1, vScreenPos) + texture2D(sTextureUnit2, vTexCoord);
     #endif
 
     #ifdef COMBINE2
-    vec3 color = texture2D(sTex2d01, vScreenPos).rgb * cBloomHDRMix.x;
-    vec3 bloom = texture2D(sTex2d02, vTexCoord).rgb * cBloomHDRMix.y;
+    vec3 color = texture2D(sTextureUnit1, vScreenPos).rgb * cBloomHDRMix.x;
+    vec3 bloom = texture2D(sTextureUnit2, vTexCoord).rgb * cBloomHDRMix.y;
     gl_FragColor = vec4(color + bloom, 1.0);
     #endif
 }

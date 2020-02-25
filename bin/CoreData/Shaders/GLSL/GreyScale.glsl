@@ -16,7 +16,7 @@ void VS()
 
 void PS()
 {
-    vec3 rgb = texture2D(sTex2d01, vScreenPos).rgb;
+    vec3 rgb = texture2D(sTextureUnit1, vScreenPos).rgb;
     float intensity = GetIntensity(rgb);
     gl_FragColor = vec4(intensity, intensity, intensity, 1.0);
 }

@@ -26,18 +26,18 @@ void VS()
 void PS()
 {
     #ifdef BLUR3
-        gl_FragColor = GaussianBlur(3, cBlurDir, cBlurHInvSize * cBlurRadius, cBlurSigma, sTex2d01, vTexCoord);
+        gl_FragColor = GaussianBlur(3, cBlurDir, cBlurHInvSize * cBlurRadius, cBlurSigma, sTextureUnit1, vTexCoord);
     #endif
 
     #ifdef BLUR5
-        gl_FragColor = GaussianBlur(5, cBlurDir, cBlurHInvSize * cBlurRadius, cBlurSigma, sTex2d01, vTexCoord);
+        gl_FragColor = GaussianBlur(5, cBlurDir, cBlurHInvSize * cBlurRadius, cBlurSigma, sTextureUnit1, vTexCoord);
     #endif
 
     #ifdef BLUR7
-        gl_FragColor = GaussianBlur(7, cBlurDir, cBlurHInvSize * cBlurRadius, cBlurSigma, sTex2d01, vTexCoord);
+        gl_FragColor = GaussianBlur(7, cBlurDir, cBlurHInvSize * cBlurRadius, cBlurSigma, sTextureUnit1, vTexCoord);
     #endif
 
     #ifdef BLUR9
-        gl_FragColor = GaussianBlur(9, cBlurDir, cBlurHInvSize * cBlurRadius, cBlurSigma, sTex2d01, vTexCoord);
+        gl_FragColor = GaussianBlur(9, cBlurDir, cBlurHInvSize * cBlurRadius, cBlurSigma, sTextureUnit1, vTexCoord);
     #endif
 }

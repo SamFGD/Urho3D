@@ -1,19 +1,39 @@
 #ifdef COMPILEPS
-uniform sampler2D sTex2d01;
-uniform sampler3D sTex3d01;
-uniform samplerCube sCube01;
-uniform sampler2D sTex2d02;
-uniform sampler3D sTex3d02;
-uniform samplerCube sCube02;
-uniform sampler2D sTex2d03;
-uniform sampler3D sTex3d03;
-uniform samplerCube sCube03;
-uniform sampler2D sTex2d04;
-uniform sampler3D sTex3d04;
-uniform samplerCube sCube04;
-uniform sampler2D sTex2d05;
-uniform sampler3D sTex3d05;
-uniform samplerCube sCube05;
+#ifdef CUBE01
+	uniform samplerCube sTextureUnit1;
+#elif TEX3D01
+	uniform sampler3D sTextureUnit1;
+#else
+	uniform sampler2D sTextureUnit1; //TEX2D01 inside shader if it is using a texture
+#endif
+#ifdef CUBE02
+	uniform samplerCube sTextureUnit2;
+#elif TEX3D02
+	uniform sampler3D sTextureUnit2;
+#else
+	uniform sampler2D sTextureUnit2;
+#endif
+#ifdef CUBE03
+	uniform samplerCube sTextureUnit3;
+#elif TEX3D03
+	uniform sampler3D sTextureUnit3;
+#else
+	uniform sampler2D sTextureUnit3;
+#endif
+#ifdef CUBE04
+	uniform samplerCube sTextureUnit4;
+#elif TEX3D04
+	uniform sampler3D sTextureUnit4;
+#else
+	uniform sampler2D sTextureUnit4;
+#endif
+#ifdef CUBE02
+	uniform samplerCube sTextureUnit5;
+#elif TEX3D02
+	uniform sampler3D sTextureUnit5;
+#else
+	uniform sampler2D sTextureUnit5;
+#endif
 uniform sampler2D sLightRampMap;
 uniform sampler2D sLightSpotMap;
 uniform samplerCube sLightCubeMap;
@@ -21,15 +41,27 @@ uniform samplerCube sLightCubeMap;
     uniform sampler2D sGBuffer01;
     uniform sampler2D sGBuffer02;
     uniform sampler2D sGBuffer03;
-	uniform sampler2D sTex2d06;
-	uniform sampler3D sTex3d06;
-	uniform samplerCube sCube06;
-	uniform sampler2D sTex2d07;
-	uniform sampler3D sTex3d07;
-	uniform samplerCube sCube07;
-	uniform sampler2D sTex2d08;
-	uniform sampler3D sTex3d08;
-	uniform samplerCube sCube08;
+	#ifdef CUBE06
+		uniform samplerCube sTextureUnit6;
+	#elif TEX3D06
+		uniform sampler3D sTextureUnit6;
+	#else
+		uniform sampler2D sTextureUnit6;
+	#endif
+	#ifdef CUBE07
+		uniform samplerCube sTextureUnit7;
+	#elif TEX3D07
+		uniform sampler3D sTextureUnit7;
+	#else
+		uniform sampler2D sTextureUnit7;
+	#endif
+	#ifdef CUBE08
+		uniform samplerCube sTextureUnit8;
+	#elif TEX3D08
+		uniform sampler3D sTextureUnit8;
+	#else
+		uniform sampler2D sTextureUnit8;
+	#endif
     uniform sampler2D sDepthBuffer;
     uniform sampler2D sLightBuffer;
     #ifdef VSM_SHADOW
